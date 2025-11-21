@@ -1,3 +1,5 @@
+// src/utils/ocr.js
+
 export async function extractTextFromImage(file) {
   return new Promise((resolve, reject) => {
     const worker = new Worker("/ocr-worker.js");
