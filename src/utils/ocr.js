@@ -1,13 +1,17 @@
 export async function extractTextFromImage(file) {
-  const { createWorker } = await import("tesseract.js");
+  return new Promise((resolve, reject) => {
+    const worker = new Worker("/ocr-worker.js");
 
-  const worker = await createWorker("eng");
+    worker.postMessage(file);
 
-  const {
-    data: { text }
-  } = await worker.recognize(file);
+    worker.onmessage = (e) => {
+      resolve(e.data.text);
+      worker.terminate();
+    };
 
-  await worker.terminate();
-
-  return text;
+    worker.onerror = (err) => {
+      reject(err);
+      worker.terminate();
+    };
+  });
 }
