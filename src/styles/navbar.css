@@ -1,0 +1,133 @@
+/* NAVBAR WRAPPER */
+.nav {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e8e8e8;
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* CONTAINER */
+.nav-container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 14px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.nav-logo {
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+
+  background: #000;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  letter-spacing: -0.5px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 5px rgba(79, 138, 255, 0.25));
+}
+
+.nav-logo .glow {
+  background: linear-gradient(90deg, #4f8aff, #a259ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 6px rgba(79, 138, 255, 0.45));
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-size: 15px;
+  font-weight: 500;
+
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  transition: 0.25s ease;
+}
+
+/* LINK HOVER */
+.nav-links a:hover {
+  color: #4f8aff;
+  text-shadow: 0 0 6px rgba(79, 138, 255, 0.35);
+}
+
+/* ACTIVE PAGE LINK */
+.nav-links a.active {
+  color: #6a5cff;
+  font-weight: 600;
+  border-bottom: 2px solid #6a5cff;
+  padding-bottom: 4px;
+}
+
+/* LOGIN BUTTON (NEON) */
+.login-btn {
+  padding: 8px 14px !important;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4f8aff, #a259ff);
+  color: white !important;
+  font-weight: 600;
+  box-shadow:
+    0 0 8px rgba(79, 138, 255, 0.45),
+    0 0 14px rgba(162, 89, 255, 0.3);
+
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 14px rgba(79, 138, 255, 0.6),
+    0 0 24px rgba(162, 89, 255, 0.45);
+}
+
+/* Active Login */
+.active-login {
+  background: linear-gradient(90deg, #7d6bff, #00c2ff);
+  color: #fff !important;
+  box-shadow:
+    0 0 15px rgba(125, 107, 255, 0.5),
+    0 0 25px rgba(0, 194, 255, 0.4);
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.logout-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  margin-top: 20px;
+}

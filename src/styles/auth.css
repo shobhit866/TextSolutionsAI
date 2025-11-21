@@ -1,0 +1,126 @@
+/* --- Auth Page Background --- */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f5f5f7;
+}
+
+/* --- Auth Card --- */
+.auth-box {
+  width: 360px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.4s ease;
+}
+
+/* --- Titles --- */
+.auth-box h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* --- Inputs --- */
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  color: #222;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: 0.25s ease;
+}
+
+.auth-input:focus {
+  border-color: #4f8aff;
+  box-shadow: 0 0 10px rgba(79, 138, 255, 0.35);
+  outline: none;
+}
+
+/* --- Neon Button --- */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.25s ease;
+  background: linear-gradient(135deg, #4f8aff, #a259ff);
+  box-shadow: 0 0 15px rgba(79, 138, 255, 0.4);
+}
+
+.auth-btn:hover {
+  box-shadow: 0 0 25px rgba(162, 89, 255, 0.55);
+  transform: translateY(-2px);
+}
+
+/* --- Switch (Login <-> Signup) --- */
+.auth-switch {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #222;
+}
+
+.auth-switch a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4f8aff;
+}
+
+.auth-switch a:hover {
+  text-shadow: 0 0 8px rgba(79, 138, 255, 0.55);
+}
+
+/* --- Tabs --- */
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.auth-tabs button.active {
+  color: #4f8aff;
+  border-bottom: 3px solid #4f8aff;
+  text-shadow: 0 0 6px rgba(79, 138, 255, 0.55);
+}
+
+/* --- Error / Info Messages --- */
+.auth-msg {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: #a259ff;
+  font-weight: 500;
+}
+
+/* --- Fade Animation --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
