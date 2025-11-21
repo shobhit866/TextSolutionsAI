@@ -1,9 +1,14 @@
-// src/utils/ocr.js
-import Tesseract from "tesseract.js";
-
 export async function extractTextFromImage(file) {
-  const result = await Tesseract.recognize(file, "eng", {
-    logger: (m) => console.log(m),
-  });
-  return result.data.text;
+  // Load Tesseract dynamically ONLY at runtime
+  const { createWorker } = await import("tesseract.js");
+
+  const worker = await createWorker("eng");
+
+  const {
+    data: { text }
+  } = await worker.recognize(file);
+
+  await worker.terminate();
+
+  return text;
 }
