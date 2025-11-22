@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
@@ -8,8 +7,8 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Detect logged-in user
   useEffect(() => {
     async function checkUser() {
       const { data: { user } } = await supabase.auth.getUser();
@@ -17,7 +16,6 @@ export default function Navbar() {
     }
     checkUser();
 
-    // Listen for auth events
     const { data: listener } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         setUser(session?.user || null);
@@ -37,47 +35,43 @@ export default function Navbar() {
     <header className="nav">
       <div className="nav-container">
 
-        {/* Brand */}
         <Link to="/" className="nav-logo">
           TextSolutions<span className="glow">AI</span>
         </Link>
 
-        {/* Navigation Links */}
-        <nav className="nav-links">
+        <div className={`hamburger ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-          <Link to="/" className={pathname === "/" ? "active" : ""}>
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link to="/" className={pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             Home
           </Link>
 
-          <Link to="/summarizer" className={pathname === "/summarizer" ? "active" : ""}>
+          <Link to="/summarizer" className={pathname === "/summarizer" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             Summarizer
           </Link>
 
-          <Link to="/mindmap" className={pathname === "/mindmap" ? "active" : ""}>
+          <Link to="/mindmap" className={pathname === "/mindmap" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             Mind Map
           </Link>
 
-          <Link to="/chatbot" className={pathname === "/chatbot" ? "active" : ""}>
+          <Link to="/chatbot" className={pathname === "/chatbot" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             Chatbot
           </Link>
 
-           <Link to="/Dashboard" className={pathname === "/Dashboard" ? "active" : ""}>
+          <Link to="/dashboard" className={pathname === "/dashboard" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             Dashboard
           </Link>
 
           {!user && (
             <>
-              <Link
-                to="/login"
-                className={`login-btn ${pathname === "/login" ? "active-login" : ""}`}
-              >
+              <Link to="/login" className={`login-btn ${pathname === "/login" ? "active-login" : ""}`} onClick={() => setMenuOpen(false)}>
                 Login
               </Link>
-
-              <Link
-                to="/signup"
-                className={`signup-btn ${pathname === "/signup" ? "active-login" : ""}`}
-              >
+              <Link to="/signup" className={`login-btn ${pathname === "/signup" ? "active-login" : ""}`} onClick={() => setMenuOpen(false)}>
                 Sign Up
               </Link>
             </>
@@ -88,9 +82,7 @@ export default function Navbar() {
               Logout
             </button>
           )}
-
         </nav>
-
       </div>
     </header>
   );
