@@ -65,10 +65,6 @@ export default function Navbar() {
             Dashboard
           </Link>
 
-          {/* ------------------------------
-               AUTH BUTTONS (Dynamic)
-          -------------------------------- */}
-
           {!user && (
             <>
               <Link
